@@ -4,9 +4,9 @@ import re
 class GetInfo(object):
     @staticmethod
     def info():
-        first_name = str(input("苗字を入力してください:"))
+        first_name = str(input("苗字を入力してください(ガナの方が識別率高いです):"))
         first_name = GetInfo.formats(first_name)
-        last_name = str(input("下の名前を入力してください:"))
+        last_name = str(input("名前を入力してください(ガナの方が識別率高いです):"))
         last_name = GetInfo.formats(last_name)
         domain = str(input("ドメインを入力してください:"))
         return first_name, last_name, domain
