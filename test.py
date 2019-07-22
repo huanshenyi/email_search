@@ -33,15 +33,19 @@ class PostApi(object):
         ans = str(ans["data"])
         ans = dr.sub("", ans)
         ans = ans[2:6]
+        if ans == "验证成功":
+            ans = "メールアドレス存在します"
+        else:
+            ans = "メールアドレス存在しません"
         return {"email": email, "ans": ans}
 
 
 if __name__ == "__main__":
-    for email in mokeEmails:
+    for email in mokeEmails[:5]:
         p = PostApi()
         ans = p.send(email)
         email_list.append(ans)
-        time.sleep(3)
+        time.sleep(5)
     print(email_list)
 
 

@@ -3,3 +3,5 @@ http://tool.chacuo.net/mailverify
 
 # メールのパターン検索
 http://metricsparrow.com/toolkit/email-permutator/
+
+https://verify-email.org/
