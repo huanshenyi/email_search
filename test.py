@@ -41,7 +41,7 @@ class PostApi(object):
 
 
 if __name__ == "__main__":
-    for email in mokeEmails[:5]:
+    for email in mokeEmails:
         p = PostApi()
         ans = p.send(email)
         email_list.append(ans)

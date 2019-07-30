@@ -1,7 +1,16 @@
 # メール存在をチェック
-http://tool.chacuo.net/mailverify
+ http://tool.chacuo.net/mailverify
+
+ https://verify-email.org/
+ 10000万件17ドル  (1835円)
+ 一人あたり(35件)  6.5円
+
+ 100000
+ 99ドル (10705円)
+ 一人あたり(4円)
+
+
 
 # メールのパターン検索
 http://metricsparrow.com/toolkit/email-permutator/
 
-https://verify-email.org/
