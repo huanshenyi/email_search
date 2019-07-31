@@ -1,4 +1,4 @@
-from get_moke_email import mokeEmails # ['den@bell-face.com', 'shouitsu@bell-face.com', 'denshouitsu@bell-face.com']
+# from get_moke_email import mokeEmails # ['den@bell-face.com', 'shouitsu@bell-face.com', 'denshouitsu@bell-face.com']
 
 
 import requests
@@ -37,16 +37,18 @@ class PostApi(object):
             ans = "メールアドレス存在します"
         else:
             ans = "メールアドレス存在しません"
-        return {"email": email, "ans": ans}
+        nowTime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        return {"date": nowTime, "name": email, "address": ans}
 
 
 if __name__ == "__main__":
-    for email in mokeEmails:
-        p = PostApi()
-        ans = p.send(email)
-        email_list.append(ans)
-        time.sleep(5)
-    print(email_list)
+    pass
+    # for email in mokeEmails:
+    #     p = PostApi()
+    #     ans = p.send(email)
+    #     email_list.append(ans)
+    #     time.sleep(5)
+    # print(email_list)
 
 
 

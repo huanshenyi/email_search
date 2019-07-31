@@ -4,7 +4,9 @@ import asyncio
 
 
 async def main(firstname, lastname, domin):
-        browser = await launch()
+        browser = await launch(handleSIGINT=False,
+                               handleSIGTERM=False,
+                               handleSIGHUP=False)
         page = await browser.newPage()
         await page.setUserAgent(
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
@@ -20,14 +22,14 @@ async def main(firstname, lastname, domin):
         await browser.close()
         return emailList
 
-firstname, lastname, domin = GetInfo.info()
-loop = asyncio.get_event_loop()
-task = asyncio.ensure_future(main(firstname, lastname, domin))
-loop.run_until_complete(task)
-mokeEmails = task.result()
-mokeEmails = mokeEmails.split("\n")
-mokeEmails = [x.strip() for x in mokeEmails]
-mokeEmails = [x for x in mokeEmails if x != '']
+# firstname, lastname, domin = GetInfo.info()
+# loop = asyncio.get_event_loop()
+# task = asyncio.ensure_future(main(firstname, lastname, domin))
+# loop.run_until_complete(task)
+# mokeEmails = task.result()
+# mokeEmails = mokeEmails.split("\n")
+# mokeEmails = [x.strip() for x in mokeEmails]
+# mokeEmails = [x for x in mokeEmails if x != '']
 
 
 if __name__ == "__main__":
@@ -39,3 +41,4 @@ if __name__ == "__main__":
     mokeEmails = mokeEmails.split("\n")
     mokeEmails = [x.strip() for x in mokeEmails]
     mokeEmails = [x for x in mokeEmails if x != '']
+    print(mokeEmails)
