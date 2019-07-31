@@ -30,6 +30,15 @@ def af_request(resp):
     return resp
 
 
+@app.route("/", methods=["GET"])
+def index():
+    data = json.dumps({
+        "message": "okです",
+        "code": 200
+    })
+    return data
+
+
 @app.route("/emails", methods=["POST"])
 def emails_info():
     request_method = request.method
@@ -59,16 +68,6 @@ def emails_info():
            ans = p.send(email)
            email_list.append(ans)
            time.sleep(5)
-       print(email_list)
-
-       #
-       # returnData = []
-       # for email in mokeEmails:
-       #     returnData.append({
-       #         "date": f'{nowTime}',
-       #         "name": f'{email}',
-       #         "address": 'false'
-       #     })
 
        data = json.dumps(email_list)
        return data
@@ -80,4 +79,6 @@ def emails_info():
         return data
 
 if __name__ == "__main__":
+    app.run(host='0.0.0.0',
+            port=5000,)
     threading.Thread(target=app.run).start()

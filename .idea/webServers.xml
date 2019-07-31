@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="abcc90d3-eebb-4186-aaee-58c71a3faa5a" name="aws-ec2" url="http://52.198.99.16">
+        <fileTransfer host="52.198.99.16" port="22" privateKey="$USER_HOME$/.ssh/id_aws_rsa_02" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
