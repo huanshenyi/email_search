@@ -10,6 +10,7 @@ import threading
 from get_info import GetInfo
 from get_moke_email import main
 from judgment import PostApi
+from email_search import verify_istrue
 
 
 app = Flask(__name__)
@@ -63,11 +64,13 @@ def emails_info():
 
        email_list = []
 
-       for email in mokeEmails[:3]:
-           p = PostApi()
-           ans = p.send(email)
-           email_list.append(ans)
-           time.sleep(5)
+       # for email in mokeEmails[:3]:
+       #     p = PostApi()
+       #     ans = p.send(email)
+       #     email_list.append(ans)
+       #     time.sleep(5)
+       for email in mokeEmails:
+           email_list.append(verify_istrue(email))
 
        data = json.dumps(email_list)
        return data
@@ -79,6 +82,6 @@ def emails_info():
         return data
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',
+    app.run(host='127.0.0.1',
             port=5000,)
     threading.Thread(target=app.run).start()
