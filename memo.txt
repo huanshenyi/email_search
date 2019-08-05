@@ -14,3 +14,5 @@
 # メールのパターン検索
 http://metricsparrow.com/toolkit/email-permutator/
 
+#
+pip install -r packages.txt

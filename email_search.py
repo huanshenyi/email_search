@@ -5,10 +5,10 @@ import time
 
 import dns.resolver
 
-# logging.basicConfig(level=logging.DEBUG,
-#                     format='%(asctime)s - %(filename)s [line:%(lineno)d] - %(levelname)s: %(message)s')
-#
-# logger = logging.getLogger()
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(filename)s [line:%(lineno)d] - %(levelname)s: %(message)s')
+
+logger = logging.getLogger()
 
 
 def fetch_mx(host):
@@ -25,10 +25,11 @@ def verify_istrue(email):
     name, host = email.split('@')
     host = random.choice(fetch_mx(host))
     # logger.info('サーバーへ接続中...：%s' % host)
-    s = smtplib.SMTP(host, timeout=10)
+    s = smtplib.SMTP(host, timeout=15)
+
     helo = s.docmd('HELO chacuo.net')
     # logger.debug(helo)
-    send_from = s.docmd('MAIL FROM:<den@bell-face.com>')
+    send_from = s.docmd('MAIL FROM:<30658190@qq.com>')
     # logger.debug(send_from)
     send_from = s.docmd('RCPT TO:<%s>' % email)
     # logger.debug(send_from)
@@ -51,5 +52,5 @@ def verify_istrue(email):
 
 
 if __name__ == '__main__':
-    final_list = verify_istrue('306581901@qq.com')
+    final_list = verify_istrue('den@bell-face.com')
     print(final_list)

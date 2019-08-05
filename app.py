@@ -4,8 +4,8 @@ from flask import request
 from flask_cors import *
 from flask import make_response
 import asyncio
-import time
 import threading
+import time
 
 from get_info import GetInfo
 from get_moke_email import main
@@ -69,7 +69,9 @@ def emails_info():
        #     ans = p.send(email)
        #     email_list.append(ans)
        #     time.sleep(5)
+
        for email in mokeEmails:
+           time.sleep(1)
            email_list.append(verify_istrue(email))
 
        data = json.dumps(email_list)
@@ -82,6 +84,6 @@ def emails_info():
         return data
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1',
+    app.run(host='0.0.0.0',
             port=5000,)
     threading.Thread(target=app.run).start()
